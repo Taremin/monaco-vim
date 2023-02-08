@@ -3631,8 +3631,8 @@ var Vim = function () {
         var tmp = new Pos(curStart.line + 1, lineLength(cm, curStart.line + 1));
         var text = cm.getRange(curStart, tmp);
         text = actionArgs.keepSpaces
-          ? text.replace(/\n\r?/g, "")
-          : text.replace(/\n\s*/g, " ");
+          ? text.replace(/\r?\n/g, "")
+          : text.replace(/\r?\n\s*/g, " ");
         cm.replaceRange(text, curStart, tmp);
       }
       var curFinalPos = new Pos(curStart.line, finalCh);
