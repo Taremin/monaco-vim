@@ -7,9 +7,9 @@ import {
   Position,
   Selection,
   SelectionDirection,
+  ShiftCommand,
   editor as monacoEditor,
-} from "monaco-editor";
-import { ShiftCommand } from "monaco-editor/esm/vs/editor/common/commands/shiftCommand";
+} from "monaco-editor/esm/vs/editor/editor.api";
 const VerticalRevealType = {
   Bottom: 4,
 };
