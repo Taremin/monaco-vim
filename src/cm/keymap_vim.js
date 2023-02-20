@@ -1737,6 +1737,8 @@ var Vim = function () {
                 console["log"](e);
               }
               throw e;
+            } finally {
+              cm.curOp.isVimOp = false;
             }
             return true;
           });
@@ -5799,6 +5801,7 @@ var Vim = function () {
       cm.operation(function () {
         cm.curOp.isVimOp = true;
         that._processCommand(cm, input, opt_params);
+        cm.curOp.isVimOp = false;
       });
     },
     _processCommand: function (cm, input, opt_params) {
