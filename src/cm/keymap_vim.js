@@ -4304,7 +4304,7 @@ var Vim = function () {
     sel = sel || vim.sel;
     var mode =
       mode || vim.visualLine ? "line" : vim.visualBlock ? "block" : "char";
-    var cmSel = makeCmSelection(cm, sel, mode);
+    var cmSel = makeCmSelection(cm, sel, mode, true);
     cm.setSelections(cmSel.ranges, cmSel.primary);
   }
   function makeCmSelection(cm, sel, mode, exclusive) {
@@ -6980,10 +6980,12 @@ var Vim = function () {
     if (vim.visualMode) {
       // Bind CodeMirror selection model to vim selection model.
       // Mouse selections are considered visual characterwise.
+      /*
       var headOffset = !cursorIsBefore(head, anchor) ? -1 : 0;
       var anchorOffset = cursorIsBefore(head, anchor) ? -1 : 0;
       head = offsetCursor(head, 0, headOffset);
       anchor = offsetCursor(anchor, 0, anchorOffset);
+      */
       vim.sel = {
         anchor: anchor,
         head: head,
